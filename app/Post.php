@@ -1,23 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+namespace App;
 
-class CreatePostsTable extends Migration
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
 {
-
-    public function up()
-
-    {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
-        });
-    }
-
-    public function down()
-    {
-        Schema::dropIfExists('posts');
-    }
+    //
 }
