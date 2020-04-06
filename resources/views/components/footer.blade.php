@@ -1,5 +1,4 @@
-<footer class="py-3 bg-light fixed-bottom">
-    <div class="container">
-        <span class="text-muted small">Simple Board by Laravel & Bootstrap 4</span>
-    </div>
+<footer>
+    <p><a href="#">ホーム</a>｜<a href="#">利用規約</a>｜<a href="#">プライバシーポリシー</a>｜<a href="#">お問い合わせ</a></p>
+   <p>© All rights reserved by PLAYGROUND MATCHMAKE.</p>
 </footer>

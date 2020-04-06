@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MATCHMAKE</title>
+    <!-- BootstrapのCSS読み込み -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fixed.css">
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- BootstrapのJS読み込み -->
+    <script src="js/bootstrap.min.js"></script>
+  </head>
+
+  <body data-spy="scroll" data-target="#navbarNav2">
+
+<!-- HOMEページ -->
+<div id="HOME">
+
+<!-- ナビゲーションバー  -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#"><img src="img/logo.png"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav2">
+       <span class="navbar-toggler-icon"></span>
+       </button>
+     
+      <div class="collapse navbar-collapse" id="navbarNav2">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="file:///Users/ikezawayousuke/Desktop/bootstrap-4.4.1-dist/index.html">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#introduction">INTRODUCTION</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="file:///Users/ikezawayousuke/Desktop/bootstrap-4.4.1-dist/playground.html">PLAYGROUND</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="file:///Users/ikezawayousuke/Desktop/bootstrap-4.4.1-dist/matchmake.html">MATCHMAKE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#signup">SIGNUP</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#login">LOGIN</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+<!-- matchmakeページ -->
+
+<div id="matchmake" class="offset">
+  <div class="col-9">
+    <h3 class="heading">MATCHMAKE検索</h3>
+      <div class="row">
+          <div class="col-md">
+              <form>
+                  <div class="form-group">
+                      <select class="form-control">
+                          <option>地域</option>
+                          <option>東京都</option>
+                          <option>神奈川県</option>
+                          <option>千葉県</option>
+                          <option>埼玉県</option>
+                          <option>茨城県</option>
+                          <option>栃木県</option>
+                          <option>群馬県</option>
+                          <option>沖縄県</option>
+                      </select>
+                  </div>
+              </form>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-9">
+        <div class="row">
+            <div class="col-md">
+                <form>
+                    <div class="form-group">
+                        <select class="form-control">
+                            <option>カテゴリー</option>
+                            <option>エンジョイ</option>
+                            <option>ＭＩＸ</option>
+                            <option>大学生</option>
+                            <option>女子</option>
+                            <option>ＯＶＥＲ３０</option>
+                            <option>誰でもＯＫ</option>
+                            <option>競技志向</option>
+                            <option>Ｕ－１８</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+      </div>
+
+  </div>
+
+  <div class="col-9">
+      <h4 class="heading">チーム情報</h4>
+    <div id="playground" class="offset">
+
+      <div class="card mb-3" style="max-width: 960px;">
+        <div class="row no-gutters">
+          <div class="col-lg-6">
+            <img src="img/playground1.png" class="card-img" alt="...">
+          </div>
+
+          <div class="col-lg-6">
+            <div class="card-body">
+              <h2 class="card-title">七里ヶ浜バスケットコート</h2>
+              <p class="card-text">神奈川県鎌倉市七里ヶ浜777</p>
+            </div>
+          </div>
+        </div>
+      </div>
+ <!-- この先はカード「キッチンシンク」を使う -->
+      <div class="card mb-3" style="max-width: 960px;">
+        <div class="row no-gutters">
+          <div class="col-lg-6">
+            <img src="img/kawagoesuijyoukouen.png" class="card-img" alt="...">
+          </div>
+          <div class="col-lg-6">
+            <div class="card-body">
+              <h2 class="card-title">川越水上公園</h2>
+              <p class="card-text">埼玉県川越市大字池辺880</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3" style="max-width: 960px;">
+        <div class="row no-gutters">
+          <div class="col-lg-6">
+            <img src="img/kanda.png" class="card-img" alt="...">
+          </div>
+          <div class="col-lg-6">
+            <div class="card-body">
+              <h2 class="card-title">神田橋公園</h2>
+              <p class="card-text">東京都千代田区神田</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3" style="max-width: 960px;">
+        <div class="row no-gutters">
+          <div class="col-lg-6">
+            <img src="img/kagosima.png" class="card-img" alt="...">
+          </div>
+          <div class="col-lg-6">
+            <div class="card-body">
+              <h2 class="card-title">米森病院コート</h2>
+              <p class="card-text">鹿児島県鹿児島市与次郎</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3" style="max-width: 960px;">
+        <div class="row no-gutters">
+          <div class="col-lg-6">
+            <img src="img/okinawa.png" class="card-img" alt="...">
+          </div>
+          <div class="col-lg-6">
+            <div class="card-body">
+              <h2 class="card-title">アラハビーチ</h2>
+              <p class="card-text">沖縄県中頭郡北谷町北谷</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3" style="max-width: 960px;">
+        <div class="row no-gutters">
+          <div class="col-lg-6">
+            <img src="img/noimage2.png" class="card-img" alt="...">
+          </div>
+          <div class="col-lg-6">
+            <div class="card-body">
+              <h2 class="card-title">淀川河川公園</h2>
+              <p class="card-text">大阪府守口市外島町</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+</div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+<footer>
+    <p><a href="#">ホーム</a>｜<a href="#">利用規約</a>｜<a href="#">プライバシーポリシー</a>｜<a href="#">お問い合わせ</a></p>
+   <p>© All rights reserved by PLAYGROUND MATCHMAKE.</p>
+</footer>
+
+
+
+</body>
+</html>

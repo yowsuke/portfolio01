@@ -15,8 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', 'PostController@index');
+Route::get('/hello', function () {
+    return view('hello.index');
+});
+Route::get('/hello', 'HelloController@index');
 
-Route::resource('posts', 'PostController');
+// Route::get('/', 'PostController@index');
 
-Route::get('hello', 'HelloController@post');
+// Route::resource('posts', 'PostController');
+Route::resource('profile', 'ProfileController');
+
+if (env('APP_ENV') === 'local') {
+    URL::forceScheme('https');
+}
+
+// Route::get('hello', 'HelloController@post');
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');

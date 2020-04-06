@@ -30,4 +30,7 @@
         </div>
     @endforeach
     <a href="/posts/create">New Post</a>
+
+    
+    </div>
 @endsection
