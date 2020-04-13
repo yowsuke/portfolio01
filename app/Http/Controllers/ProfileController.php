@@ -36,18 +36,23 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+    
     {
-        $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-        ]);
-
         $profile = new Profile();
-        $profile->title = $request->input('title');
-        $profile->content = $request->input('content');
+        $profile->name = $request->input('name');
+        $profile->teamname = $request->input('teamname');
+        $profile->category = $request->input('category');
+        $profile->area = 'okinawa';
+        $profile->age = $request->input('age');
+        $profile->offence = $request->input('offence');
+        $profile->deffence = $request->input('deffence');
+        $profile->stamina = $request->input('stamina');
+        $profile->technic = $request->input('technic');
+        $profile->love = $request->input('love');
+        $profile->introduce = $request->input('introduce');
         $profile->save();
 
-        return redirect()->route('profile.show', ['id' => $profile->id])->with('message', 'Profile was successfully created.');
+        return redirect(route('profile.show', $profile->id))->with('message', '新規登録完了しました');
     }
 
     /**
@@ -88,6 +93,7 @@ class ProfileController extends Controller
 
         $profile->title = $request->input('title');
         $profile->content = $request->input('content');
+        
         $profile->save();
 
         return redirect()->route('profile.show', ['id' => $profile->id])->with('message', 'Profile was successfully updated.');

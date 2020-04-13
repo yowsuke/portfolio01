@@ -11,23 +11,31 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/hello', function () {
-    return view('hello.index');
-});
-Route::get('/hello', 'HelloController@index');
+// Route::get('/hello', function () {
+//     return view('hello.index');
+// });
+// Route::get('/hello', 'HelloController@index');
 
 // Route::get('/', 'PostController@index');
-
 // Route::resource('posts', 'PostController');
-Route::resource('profile', 'ProfileController');
 
+Route::resource('profile', 'ProfileController');
 if (env('APP_ENV') === 'local') {
     URL::forceScheme('https');
 }
+
+Route::resource('playground', 'PlaygroundController');
+if (env('APP_ENV') === 'local') {
+    URL::forceScheme('https');
+}
+
+Route::get('/playground', function () {
+         return view('playground');
+ });
 
 // Route::get('hello', 'HelloController@post');
 // Auth::routes();

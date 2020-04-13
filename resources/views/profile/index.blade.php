@@ -8,6 +8,7 @@
         {{ session('message') }}
     @endif
 
+@endsection
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -15,7 +16,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PLAYGROUND</title>
-    <!-- BootstrapのCSS読み込み -->
+    <!-- CSS読み込み -->
     <!-- jQuery読み込み -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- BootstrapのJS読み込み -->
@@ -34,7 +35,7 @@
 <div class="caption text-center">
   <h1>Welcome to<br>PLAYGROUND MATCHMAKE.</h1>
   <h3>バスケットボールマッチングサイト</h3>
-  <a class="btn btn-outline-light btn-lg" href="#matchmake">Get Started</a>
+  <a class="btn btn-outline-light btn-lg" href="#playground">Get Started</a>
 </div>
 
 <!-- introductionページ -->
@@ -155,7 +156,7 @@
   <div class="col-12">
     <h2 class="heading">match make</h2>
     <h3>対戦相手を募集して、マッチメイクを実現しよう！</h3>
-    <button type="button" class="btn-secondary" onclick="location.href='/profile/create'>GET STARTED</button>
+    <button type="button" class="btn-secondary" onclick="location.href='http://localhost/portfolio01/profile/create'">GET STARTED</button>
   </div>
   
   <div class="row text-center">
@@ -289,9 +290,9 @@
 
 <!-- loginページ -->
 <div id="login" class="offset">
+  
 </div>
 
 </body>
 </html>
 
-@endsection
