@@ -33,9 +33,9 @@ if (env('APP_ENV') === 'local') {
     URL::forceScheme('https');
 }
 
-Route::get('/playground', function () {
-         return view('playground');
- });
+// Route::get('/playground', function () {
+        //  return view('playground');
+//   });
 
 // Route::get('hello', 'HelloController@post');
 // Auth::routes();

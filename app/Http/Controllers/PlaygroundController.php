@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
+use App\Playground;
 use Illuminate\Http\Request;
 
 class PlaygroundController extends Controller
@@ -14,7 +14,9 @@ class PlaygroundController extends Controller
      */
     public function index()
     {
-        //
+        $playground = playground::all();
+
+        return view('playground.index', compact('playground'));
     }
 
     /**
@@ -24,7 +26,7 @@ class PlaygroundController extends Controller
      */
     public function create()
     {
-        //
+        return view('playground.create');
     }
 
     /**
@@ -35,27 +37,32 @@ class PlaygroundController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $playground = new playground();
+        $playground->title = $request->input('title');
+        $playground->content = $request->input('content');
+        $playground->save();
+
+        return redirect()->route('playground.show', ['id' => $playground->id])->with('message', 'playground was successfully created.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Post  $post
+     * @param  \App\Playground  $playground
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Playground $playground)
     {
-        //
+        return view('playground.show', compact('playground'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Post  $post
+     * @param  \App\Playground  $playground
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Playground $playground)
     {
         //
     }
@@ -64,22 +71,27 @@ class PlaygroundController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Post  $post
+     * @param  \App\Playground  $playground
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Playground $playground)
     {
-        //
+        $playground->title = $request->input('title');
+        $playground->content = $request->input('content');
+        $playground->save();
+
+        return redirect()->route('playground.show', ['id' => $playground->id])->with('message', 'playground was successfully updated.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Post  $post
+     * @param  \App\Playground  $playground
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Playground $playground)
     {
-        //
+        $playground->delete();
+        return redirect()->route('playground.index');
     }
 }
