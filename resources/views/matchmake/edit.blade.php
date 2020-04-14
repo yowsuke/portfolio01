@@ -1,10 +1,10 @@
 @extends('layouts.layouts')
 
-@section('title', 'Playground')
+@section('title', 'Matchmake')
 
 @section('content')
 
-<h1>New Playground</h1>
+<h1>Editing Matchmake</h1>
 
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -16,19 +16,22 @@
     </div>
 @endif
 
-<form method="POST" action="/playground">
+<form method="POST" action="/matchmake/{{ $matchmake->id }}">
     {{ csrf_field() }}
+    <input type="hidden" name="_method" value="PUT">
     <div class="form-group">
         <label for="exampleInputEmail1">Title</label>
-        <input type="text" class="form-control" aria-describedby="emailHelp" name="title" value="{{old('title')}}">
+        <input type="text" class="form-control" aria-describedby="emailHelp" name="title" value="{{ old('title') == '' ? $matchmake->title : old('title') }}">
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1">Content</label>
-        <textarea class="form-control" name="content">{{old('content')}}</textarea>
+        <textarea class="form-control" name="content">{{ old('content') == '' ? $matchmake->content : old('content') }}</textarea>
     </div>
     <button type="submit" class="btn btn-outline-primary">Submit</button>
 </form>
 
-<a href="/playground">Back</a>
+<a href="/matchmake/{{ $matchmake->id }}">Show</a> | 
+<a href="/matchmake">Back</a>
+
 
 @endsection

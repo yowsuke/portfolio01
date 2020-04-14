@@ -37,12 +37,30 @@ class PlaygroundController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            ]);
+       
         $playground = new playground();
         $playground->title = $request->input('title');
         $playground->content = $request->input('content');
         $playground->save();
 
-        return redirect()->route('playground.show', ['id' => $playground->id])->with('message', 'playground was successfully created.');
+        return redirect()->route('playground.show', ['id' => $playground->id])->with('message', 'Playground was successfully created.');
+    }
+        public function update(Request $request, Playground $playground)
+    {
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+
+        $playground->title = $request->input('title');
+        $playground->content = $request->input('content');
+        $playground->save();
+
+        return redirect()->route('playground.show', ['id' => $playground->id])->with('message', 'Playground was successfully updated.');
     }
 
     /**

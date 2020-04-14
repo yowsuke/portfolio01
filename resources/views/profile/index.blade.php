@@ -35,7 +35,7 @@
 <div class="caption text-center">
   <h1>Welcome to<br>PLAYGROUND MATCHMAKE.</h1>
   <h3>バスケットボールマッチングサイト</h3>
-  <a class="btn btn-outline-light btn-lg" href="#playground">Get Started</a>
+  <a class="btn btn-outline-light btn-lg" href="http://localhost/portfolio01/playground">Get Started</a>
 </div>
 
 <!-- introductionページ -->
@@ -86,7 +86,7 @@
   <div class="col-12">
     <h2 class="heading">PLAYGROUND</h2>
     <h3>プレイグラウンドを検索して、新しい仲間とプレーしよう！</h3>
-    <button type="button" class="btn-secondary" onclick="location.href=''">GET STARTED</button>
+    <button type="button" class="btn-secondary" onclick="location.href='http://localhost/portfolio01/playground'">GET STARTED</button>
   </div>
 
   <div class="row text-center">

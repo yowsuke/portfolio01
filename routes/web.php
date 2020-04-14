@@ -33,6 +33,11 @@ if (env('APP_ENV') === 'local') {
     URL::forceScheme('https');
 }
 
+Route::resource('matchmake', 'MatchmakeController');
+if (env('APP_ENV') === 'local') {
+    URL::forceScheme('https');
+}
+
 // Route::get('/playground', function () {
         //  return view('playground');
 //   });
