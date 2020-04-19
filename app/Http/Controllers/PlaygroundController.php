@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Playground;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PlaygroundController extends Controller
 {
@@ -49,19 +50,6 @@ class PlaygroundController extends Controller
 
         return redirect()->route('playground.show', ['id' => $playground->id])->with('message', 'Playground was successfully created.');
     }
-        public function update(Request $request, Playground $playground)
-    {
-        $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-        ]);
-
-        $playground->title = $request->input('title');
-        $playground->content = $request->input('content');
-        $playground->save();
-
-        return redirect()->route('playground.show', ['id' => $playground->id])->with('message', 'Playground was successfully updated.');
-    }
 
     /**
      * Display the specified resource.
@@ -83,22 +71,6 @@ class PlaygroundController extends Controller
     public function edit(Playground $playground)
     {
         //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Playground  $playground
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Playground $playground)
-    {
-        $playground->title = $request->input('title');
-        $playground->content = $request->input('content');
-        $playground->save();
-
-        return redirect()->route('playground.show', ['id' => $playground->id])->with('message', 'playground was successfully updated.');
     }
 
     /**

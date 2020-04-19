@@ -1,6 +1,6 @@
 <!-- ナビゲーションバー  -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="http://localhost/portfolio01/profile"><img src="img/logo.png"></a>
+      <a class="navbar-brand" href="http://localhost/portfolio01/profile"><img src="{{ url('img/logo.png') }}"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav2">
        <span class="navbar-toggler-icon"></span>
        </button>
@@ -17,14 +17,37 @@
             <a class="nav-link" href="http://localhost/portfolio01/playground">PLAYGROUND</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">MATCHMAKE</a>
+            <a class="nav-link" href="http://localhost/portfolio01/matchmake">MATCHMAKE</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="http://localhost/portfolio01/profile/create">SIGNUP</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#login">LOGIN</a>
-          </li>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            @auth
+            <li class="nav-item">
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+            </li>
+            @else
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+            </li>
+            @endauth
         </ul>
       </div>
+
+      </ul>
+      </div>
+
     </nav>
+
+              <!-- <li class="nav-item">
+            <a class="nav-link" href="{{ route('register') }}">SIGNUP</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('login') }}">LOGIN</a>
+          </li> -->
+

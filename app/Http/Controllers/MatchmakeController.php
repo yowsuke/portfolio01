@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Matchmake;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MatchmakeController extends Controller
 {
@@ -49,20 +50,7 @@ class MatchmakeController extends Controller
 
         return redirect()->route('matchmake.show', ['id' => $matchmake->id])->with('message', 'Matchmake was successfully created.');
     }
-        public function update(Request $request, Matchmake $matchmake)
-    {
 
-        $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-        ]);
-
-        $matchmake->title = $request->input('title');
-        $matchmake->content = $request->input('content');
-        $matchmake->save();
-
-        return redirect()->route('matchmake.show', ['id' => $matchmake->id])->with('message', 'Matchmake was successfully updated.');
-    }
     /**
      * Display the specified resource.
      *
@@ -94,6 +82,11 @@ class MatchmakeController extends Controller
      */
     public function update(Request $request, Matchmake $matchmake)
     {
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+        
         $matchmake->title = $request->input('title');
         $matchmake->content = $request->input('content');
         $matchmake->save();

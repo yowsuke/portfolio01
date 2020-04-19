@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -39,6 +40,7 @@ class ProfileController extends Controller
     
     {
         $profile = new Profile();
+        $profile->userid = Auth::id();
         $profile->name = $request->input('name');
         $profile->teamname = $request->input('teamname');
         $profile->category = $request->input('category');
@@ -93,7 +95,6 @@ class ProfileController extends Controller
 
         $profile->title = $request->input('title');
         $profile->content = $request->input('content');
-        
         $profile->save();
 
         return redirect()->route('profile.show', ['id' => $profile->id])->with('message', 'Profile was successfully updated.');
