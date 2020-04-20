@@ -108,6 +108,16 @@ h3 {
   text-align: center;
 }
 
+/* playground2 */
+.h2 {
+  margin-top: 10rem;
+}
+
+
+h5 {
+  font-size: 1.2rem;
+}
+
 /* matchmake */
 .col-2 p {
   font-size: 0.9rem;

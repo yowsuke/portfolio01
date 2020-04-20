@@ -7,21 +7,7 @@
     @if (session('message'))
         {{ session('message') }}
     @endif
-
 @endsection
-
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PLAYGROUND</title>
-    <!-- CSS読み込み -->
-    <!-- jQuery読み込み -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- BootstrapのJS読み込み -->
-    <script src="js/bootstrap.min.js"></script>
-  </head>
 
   <!-- landingpageページ -->
 <div class="landing">
@@ -293,6 +279,8 @@
   
 </div>
 
+
 </body>
 </html>
+
 
