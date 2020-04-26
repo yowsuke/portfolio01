@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Playground;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PlaygroundController extends Controller
 {
@@ -13,10 +14,11 @@ class PlaygroundController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $playground = playground::all();
-
+        $playground = Playground::all();
+        $name = $request->input('pref');
+        // dd($name);
         return view('playground.index', compact('playground'));
     }
 

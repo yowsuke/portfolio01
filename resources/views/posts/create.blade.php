@@ -1,34 +1,28 @@
-@extends('layouts.layouts')
+@extends('layouts.default')
 
-@section('title', 'Simple Board')
+@section('title','New Post')
 
 @section('content')
-
-<h1>New Post</h1>
-
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
-<form method="POST" action="/posts">
+<h1>
+    <a href="{{ url('/posts') }}" class="header-menu">Back</a>
+    New Post
+</h1>
+<form method="POST" action="{{ url('/posts') }}">
     {{ csrf_field() }}
-    <div class="form-group">
-        <label for="exampleInputEmail1">Title</label>
-        <input type="text" class="form-control" aria-describedby="emailHelp" name="title" value="{{old('title')}}">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Content</label>
-        <textarea class="form-control" name="content">{{old('content')}}</textarea>
-    </div>
-    <button type="submit" class="btn btn-outline-primary">Submit</button>
+    <p>
+        <input type="text" name="title" placeholder="enter title" value="{{ old('title') }}">
+        @if($errors->has('title'))
+        <span class="error">{{ $errors->first('title') }}</span>
+        @endif
+    </p>
+    <p>
+        <textarea name="content" placeholder="enter content">{{ old('content') }}</textarea>
+        @if($errors->has('content'))
+        <span class="error">{{ $errors->first('content') }}</span>
+        @endif
+    </p>
+    <p>
+        <input type="submit" value="Add">
+    </p>
 </form>
-
-<a href="/posts">Back</a>
-
 @endsection

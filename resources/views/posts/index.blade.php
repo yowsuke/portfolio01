@@ -1,36 +1,29 @@
-@extends('layouts.layouts')
+@extends('layouts.default')
 
-@section('title', 'Simple Board')
+@section('title','Blog Posts')
 
 @section('content')
+<h1>
+    <a href="{{ url('/posts/create')}}" class="header-menu">New Post</a>
+    Blog Posts
+</h1>
+        <ul>
+            @forelse($posts as $post)
+            <li>
+                <a href="{{ action('PostController@show', $post->id) }}">{{ $post->title }}</a>
 
-    @if (session('message'))
-        {{ session('message') }}
-    @endif
-
-    <h1>Posts</h1>
-
-    @foreach($posts as $post)
-
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{{ $post->title }}</h5>
-                <p class="card-text">{{ $post->content }}</p>
-
-                <div class="d-flex" style="height: 36.4px;">
-                    <a href="/posts/{{ $post->id }}" class="btn btn-outline-primary">Show</a>
-                    <a href="/posts/{{ $post->id }}/edit" class="btn btn-outline-primary">Edit</a>
-                    <form action="/posts/{{ $post->id }}" method="POST" onsubmit="if(confirm('Delete? Are you sure?')) { return true } else {return false };">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <button type="submit" class="btn btn-outline-danger">Delete</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    @endforeach
-    <a href="/posts/create">New Post</a>
-
-    
-    </div>
+                <a href="{{ action('PostController@edit', $post) }}" class="edit">[Edit]</a>
+                
+                <a href="#" class="del" data-id="{{ $post->id }}">[×]</a>
+                
+                <form method="POST" action="{{ url('/posts', $post->id) }}" id="form_{{ $post->id }}">
+                    {{ csrf_field() }}
+                    {{ method_field('delete') }}
+                </form>
+            </li>
+            @empty
+            <li>No posts yet</li>
+            @endforelse
+        </ul>
+        <script src="js/main.js"></script>
 @endsection

@@ -14,16 +14,29 @@
 //     return view('welcome');
 // });
 
-// Route::get('/', 'PostController@index');
-// Route::resource('posts', 'PostController');
+// ↓ドットインストール
+Route::get('/posts', 'PostController@index');
+Route::get('/posts/{post}', 'PostController@show')->where('post','[0-9]+');
+Route::get('/posts/create', 'PostController@create');
+Route::post('/posts', 'PostController@store');
+Route::get('/posts/{post}/edit', 'PostController@edit');
+Route::patch('/posts/{post}', 'PostController@update');
+Route::delete('/posts/{post}', 'PostController@destroy');
+Route::post('/posts/{post}/comments', 'CommentsController@store');
+Route::delete('/posts/{post}/comments/{comment}', 'CommentsController@destroy');
 
 
 // ↓テキスト学習
-Route::get('hello', function () {
-    return view('hello.index');
-});
-Route::get('/hello', 'HelloController@index');
-Route::post('/hello', 'HelloController@post');
+// Route::get('hello', function () {
+//     return view('hello.index');
+// });
+// Route::get('/hello', 'HelloController@index');
+// Route::post('/hello', 'HelloController@post');
+
+// use App\Http\Middleware\HelloMiddleware;
+// Route::get('/hello', 'HelloController@index')
+//     ->middleware(HelloMiddleware::class);
+
 // Route::get('/hello/other', 'HelloController@other');
 
 
@@ -50,6 +63,8 @@ if (env('APP_ENV') === 'local') {
 }
 
 Auth::routes();
+
+
 
 // Route::get('/playground', function () {
         //  return view('playground');

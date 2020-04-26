@@ -108,21 +108,40 @@ h3 {
   text-align: center;
 }
 
-/* playground2 */
-.h2 {
-  margin-top: 10rem;
+/* playground-page2 */
+.search h2 {
+  margin-top: 6rem;
+}
+.info h2 {
+  margin-top: 5rem;
 }
 
 
-h5 {
-  font-size: 1.2rem;
+.p_card {
+  text-align: center;
 }
+.p_card p {
+  font-size: 0.9rem;
+}
+.p_card h4 {
+  border-bottom: solid 3px rgb(240, 7, 7);
+  position: relative;
+}
+.p_card h4:after {
+  position: absolute;
+  content: " ";
+  display: block;
+  border-bottom: solid 3px rgb(0, 0, 0);
+  bottom: -3px;
+  width: 30%;
+}
+
+
 
 /* matchmake */
 .col-2 p {
   font-size: 0.9rem;
 }
-
 
 /* footer */
 footer{
@@ -137,32 +156,7 @@ display: inline;
 text-decoration: none;
 }
 
-/* playground-2 */
-/* playground検索 */
-.col-9 h3 {
-  margin-top: 5rem;
-  padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
-  color: #494949;/*文字色*/
-  background: #f4f4f4;/*背景色*/
-  border-left: solid 5px #7db4e6;/*左線*/
-  border-bottom: solid 3px #d7d7d7;/*下線*/
-  text-align: left;
-}
-.card-text {
-  font-size: 1.5rem;
-}
-/* playground情報 */
-.col-9 h4 {
-  padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
-  color: #494949;/*文字色*/
-  background: #f4f4f4;/*背景色*/
-  border-left: solid 5px #7db4e6;/*左線*/
-  border-bottom: solid 3px #d7d7d7;/*下線*/
-  text-align: left;
-}
-.card-text {
-  font-size: 1.5rem;
-}
+
 
 /* matchmake */
 .matchmake h1 {

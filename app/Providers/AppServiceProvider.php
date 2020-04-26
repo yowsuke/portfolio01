@@ -11,10 +11,12 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
-    {
-        //
-    }
+    // public function boot()
+    // {
+    //     if(\DB::getDriverName() === 'sqlite') {
+    //       \DB::statement(\DB::raw('PRAGMA foreign_keys=1'));
+    //     }
+    // }
 
     /**
      * Bootstrap any application services.
@@ -23,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if(\DB::getDriverName() === 'sqlite') {
+          \DB::statement(\DB::raw('PRAGMA foreign_keys=1'));
+        }
     }
 }

@@ -1,31 +1,41 @@
-@extends('layouts.layouts')
+@extends('layouts.default')
 
-@section('title', 'Simple Board')
+@section('title', $post->title)
 
 @section('content')
+<h1>
+    <a href="{{ url('/posts') }}" class="header-menu">Back</a>
+    {{ $post->title }}
+</h1>
+<p>{!! nl2br(e($post->content)) !!}</p>
 
-    @if (session('message'))
-        {{ session('message') }}
-    @endif
+<h2>Comments</h2>
+    <ul>
+        @forelse($post->comments as $comment)
+        <li>
+        {{ $comment->content }}
+        <a href="#" class="del" data-id="{{ $comment->id }}">[×]</a>
+        <form method="POST" action="{{ action('CommentsController@destroy', [$post,$comment]) }}" id="form_{{ $comment->id }}">
+            {{ csrf_field() }}
+            {{ method_field('delete') }}
+        </form>
+        </li>
+        @empty
+        <li>No comments yet</li>
+        @endforelse
+    </ul>
 
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">{{ $post->title }}</h5>
-            <p class="card-text">{{ $post->content }}</p>
-
-            <div class="d-flex" style="height: 36.4px;">
-                <button class="btn btn-outline-primary">Show</button>
-                <a href="/posts/{{ $post->id }}/edit" class="btn btn-outline-primary">Edit</a>
-                <form action="/posts/{{ $post->id }}" method="POST" onsubmit="if(confirm('Delete? Are you sure?')) { return true } else {return false };">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <button type="submit" class="btn btn-outline-danger">Delete</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <a href="/posts/{{ $post->id }}/edit">Edit</a> | 
-    <a href="/posts">Back</a>
-
+    <form method="POST" action="{{ action('CommentsController@store' , $post) }}">
+    {{ csrf_field() }}
+    <p>
+        <input type="text" name="content" placeholder="enter comment" value="{{ old('content') }}">
+        @if($errors->has('content'))
+        <span class="error">{{ $errors->first('content') }}</span>
+        @endif
+    </p>
+    <p>
+        <input type="submit" value="Add Comment">
+    </p>
+</form>
+<script src="js/main.js"></script>
 @endsection

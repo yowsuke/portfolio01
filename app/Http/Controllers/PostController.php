@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
 use Illuminate\Http\Request;
+use App\Post;
+use App\Http\Requests\PostRequest;
+use App\Comment;
 
 class PostController extends Controller
 {
@@ -14,10 +16,21 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-
-        return view('posts.index', compact('posts'));
+        $posts = Post::latest()->get();
+        return view('posts.index')->with('posts',$posts);
     }
+
+/**
+     * Display the specified resource.
+     *
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Post $post)
+    {
+        return view('posts.show')->with('posts',$post);
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -35,31 +48,15 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        $request->validate([
-        'title' => 'required',
-        'content' => 'required',
-        ]);
-
         $post = new Post();
-        $post->title = $request->input('title');
-        $post->content = $request->input('content');
+        $post->title = $request->title;
+        $post->content = $request->content;
         $post->save();
-
-        return redirect()->route('posts.show', ['id' => $post->id])->with('message', 'Post was successfully created.');
+        return redirect('/posts');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
-    {
-        return view('posts.show', compact('post'));
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -69,7 +66,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posts.edit', compact('post'));
+        return view('posts.edit')->with('post',$post);
     }
 
     /**
@@ -79,18 +76,12 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
-        $request->validate([
-        'title' => 'required',
-        'content' => 'required',
-        ]);
-
-        $post->title = $request->input('title');
-        $post->content = $request->input('content');
+        $post->title = $request->title;
+        $post->content = $request->content;
         $post->save();
-
-        return redirect()->route('posts.show', ['id' => $post->id])->with('message', 'Post was successfully updated.');
+        return redirect('/posts');
     }
 
     /**
@@ -102,7 +93,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-
-        return redirect()->route('posts.index');
+        return redirect('/posts');
     }
 }
