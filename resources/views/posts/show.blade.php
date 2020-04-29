@@ -9,13 +9,14 @@
 </h1>
 <p>{!! nl2br(e($post->content)) !!}</p>
 
+
 <h2>Comments</h2>
     <ul>
         @forelse($post->comments as $comment)
         <li>
         {{ $comment->content }}
         <a href="#" class="del" data-id="{{ $comment->id }}">[×]</a>
-        <form method="POST" action="{{ action('CommentsController@destroy', [$post,$comment]) }}" id="form_{{ $comment->id }}">
+        <form method="POST" action="{{ action('CommentController@destroy', [$post,$comment]) }}" id="form_{{ $comment->id }}">
             {{ csrf_field() }}
             {{ method_field('delete') }}
         </form>
@@ -25,7 +26,7 @@
         @endforelse
     </ul>
 
-    <form method="POST" action="{{ action('CommentsController@store' , $post) }}">
+    <form method="POST" action="{{ action('CommentController@store' , $post) }}">
     {{ csrf_field() }}
     <p>
         <input type="text" name="content" placeholder="enter comment" value="{{ old('content') }}">

@@ -22,8 +22,8 @@ Route::post('/posts', 'PostController@store');
 Route::get('/posts/{post}/edit', 'PostController@edit');
 Route::patch('/posts/{post}', 'PostController@update');
 Route::delete('/posts/{post}', 'PostController@destroy');
-Route::post('/posts/{post}/comments', 'CommentsController@store');
-Route::delete('/posts/{post}/comments/{comment}', 'CommentsController@destroy');
+Route::post('/posts/{post}/comments', 'CommentController@store');
+Route::delete('/posts/{post}/comments/{comments}', 'CommentController@destroy');
 
 
 // ↓テキスト学習
@@ -42,15 +42,17 @@ Route::delete('/posts/{post}/comments/{comment}', 'CommentsController@destroy');
 
 
 
-
-
-
 // ↓ルーティングにRoute::resourceを指定することで、CRUDルーティングを一度にできる。
 // local内でhttpsにURLを設定
-Route::resource('profile', 'ProfileController');
-if (env('APP_ENV') === 'local') {
-    URL::forceScheme('https');
-}
+// Route::resource('/profile', 'ProfileController');
+// if (env('APP_ENV') === 'local') {
+//     URL::forceScheme('https');
+// }
+
+Route::get('/profile', 'ProfileController@index');
+Route::get('/profile/{userid}', 'ProfileController@show');
+
+
 
 Route::resource('playground', 'PlaygroundController');
 if (env('APP_ENV') === 'local') {

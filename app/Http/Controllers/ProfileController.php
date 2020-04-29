@@ -15,9 +15,9 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $profile = Profile::all();
-
-        return view('profile.index', compact('profile'));
+        $profile = Profile::latest()->get();
+        // dd($profile->toArray());
+        return view('profile.index')->with('profile', $profile);
     }
 
     /**
@@ -39,18 +39,13 @@ class ProfileController extends Controller
     public function store(Request $request)
     
     {
-        $profile = new Profile();
-        $profile->userid = Auth::id();
+        $profile = new Profile(); 
+        $profile->userid = Auth::userid();
         $profile->name = $request->input('name');
         $profile->teamname = $request->input('teamname');
         $profile->category = $request->input('category');
-        $profile->area = 'okinawa';
+        $profile->area = $request->input('area');
         $profile->age = $request->input('age');
-        $profile->offence = $request->input('offence');
-        $profile->deffence = $request->input('deffence');
-        $profile->stamina = $request->input('stamina');
-        $profile->technic = $request->input('technic');
-        $profile->love = $request->input('love');
         $profile->introduce = $request->input('introduce');
         $profile->save();
 
@@ -63,9 +58,10 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function show(Profile $profile)
+    public function show($userid)
     {
-        return view('profile.show', compact('profile'));
+        $profile = Profile::findOrFail($userid);
+        return view('profile.show')->with('profile', '$profile');
     }
 
     /**

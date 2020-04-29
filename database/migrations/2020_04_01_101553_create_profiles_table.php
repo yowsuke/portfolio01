@@ -20,11 +20,6 @@ class CreateProfilesTable extends Migration
             $table->string('category');
             $table->string('area');
             $table->integer('age');
-            $table->integer('offence');
-            $table->integer('diffence');
-            $table->integer('stamina');
-            $table->integer('technic');
-            $table->integer('love');
             $table->text('introduce');
             $table->timestamps();
         });
