@@ -14,7 +14,7 @@
             <a class="nav-link" href="#introduction">INTRODUCTION</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost/portfolio01/playground">PLAYGROUND</a>
+            <a class="nav-link" href="{{ url('/playground') }}">PLAYGROUND</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="http://localhost/portfolio01/matchmake">MATCHMAKE</a>

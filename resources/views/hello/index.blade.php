@@ -1,6 +1,6 @@
 @extends('layouts.helloapp')
 
-@section('title','Index')
+@section('title', 'Index')
 
 @section('menubar')
     @parent
@@ -8,21 +8,17 @@
 @endsection
 
 @section('content')
-    <p>ここが本文のコンテンツです。</p>
-    <table>
-    @foreach($data as $item)
+<table>
+  <tr><th>Name</th><th>email</th></tr>
+@foreach($items as $item)
     <tr>
-        <th>{{$item['name']}}</th>
-        <td>{{$item['mail']}}</td>
+        <td>{{ $item->name }}</td>
+        <td>{{ $item->email }}</td>
     </tr>
-    @endforeach
-    </table>
+@endforeach
+  <table>
 @endsection
 
-    <p>Controller value<br>'message' = {{$message}}</p>
-    <p>ViewComposer value<br>'view_message' = {{$view_message}}</p>
-@endsection
-
-@section('footer')
-copyright 2020 tuyano.accordion
+@section('fotter')
+copyright 2020 tuyano.
 @endsection

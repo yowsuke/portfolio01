@@ -11,6 +11,20 @@ body {
   margin-top: -4rem;
 }
 
+/* DB */
+th {
+  background-color: #999;
+  color: #fff;
+  padding: 5px 10px;
+}
+
+td {
+  border: solid 1px #aaa;
+  color: #999;
+  padding: 5px 10px;
+}
+
+
 /* navigation */
 .navbar {
   text-transform: uppercase;
@@ -90,6 +104,10 @@ body {
 }
 
 /* playground */
+.col-12 {
+  text-align: center;
+  margin-top: 4.0rem;
+}
 h2.heading {
   font-size: 3.2rem;
   font-weight: 700;
@@ -104,19 +122,6 @@ h3 {
   text-transform: uppercase;
   text-align: center;
 }
-.col-12 {
-  text-align: center;
-}
-
-/* playground-page2 */
-.search h2 {
-  margin-top: 6rem;
-}
-.info h2 {
-  margin-top: 5rem;
-}
-
-
 .p_card {
   text-align: center;
 }
@@ -162,6 +167,13 @@ text-decoration: none;
 .matchmake h1 {
   margin-top: 100px;
 }
+
+/* register */
+.card-header {
+  margin-top: 4.0rem;
+}
+
+
 
 /*--- Extra Bootstrap Column Padding --*/
 [class*="col-"] {

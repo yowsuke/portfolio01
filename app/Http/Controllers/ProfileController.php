@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Person;
+use Illuminate\Support\Facades\View;
 
 class ProfileController extends Controller
 {
@@ -13,11 +16,19 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $profile = Profile::latest()->get();
-        // dd($profile->toArray());
-        return view('profile.index')->with('profile', $profile);
+        return view('profile.index');
+    }
+
+    public function playground(Request $request)
+    {   
+        return view('profile.playground');
+    }
+
+    public function matchmake(Request $request)
+    {   
+        return view('profile.matchmake');
     }
 
     /**
@@ -25,9 +36,9 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('profile.create');
+        return view('index.create');
     }
 
     /**
