@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Post;
 use App\Http\Requests\PostRequest;
 use App\Comment;
+use App\Playground;
+
 
 class PostController extends Controller
 {
@@ -16,8 +19,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->get();
-        return view('posts.index')->with('posts',$posts);
+        $posts = Post::all();
+        return view('posts.index', compact('posts'));
     }
 
 /**
@@ -28,7 +31,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('posts.show')->with('post',$post);
+        return view('posts.show', compact('post'));
     }
 
 
@@ -48,13 +51,18 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostRequest $request)
+    public function store(Request $request)
     {
+        $request->validate([
+        'title' => 'required',
+        'content' => 'required',
+        ]);
         $post = new Post();
-        $post->title = $request->title;
-        $post->content = $request->content;
+        $post->title = $request->input('title');
+        $post->content = $request->input('content');
         $post->save();
-        return redirect('/posts');
+
+        return redirect()->route('posts.show', ['id' => $post->id])->with('message', 'Post was successfully created.');
     }
 
 
@@ -66,7 +74,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posts.edit')->with('post',$post);
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -76,12 +84,17 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(PostRequest $request, Post $post)
+    public function update(Request $request, Post $post)
     {
-        $post->title = $request->title;
-        $post->content = $request->content;
+        $request->validate([
+        'title' => 'required',
+        'content' => 'required',
+        ]);
+        $post->title = $request->input('title');
+        $post->content = $request->input('content');
         $post->save();
-        return redirect('/posts');
+
+        return redirect()->route('posts.show', ['id' => $post->id])->with('message', 'Post was successfully updated.');
     }
 
     /**
@@ -93,6 +106,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect('/posts');
+        return redirect()->route('posts.index');
     }
 }

@@ -45,7 +45,7 @@ td {
 }
 .navbar-dark .navbar-nav .nav-link.active,
 .navbar-dark .navbar-nav .nav-link:hover {
-  color: #1EBBA3;
+  color: rgb(240, 12, 248);
 }
 
 /* landingpage */
@@ -81,7 +81,7 @@ td {
 .col-12 h3 {
   padding: 0.5em;/*文字周りの余白*/
   color: #505962;/*文字色*/
-  background: #c3c3c4;/*背景色*/
+  background: #c7c7c7;/*背景色*/
   border-bottom: solid 4px #505962/*下線*/
 }
 .card {
@@ -106,7 +106,7 @@ td {
 /* playground */
 .col-12 {
   text-align: center;
-  margin-top: 4.0rem;
+  margin-top: 2.0rem;
 }
 h2.heading {
   font-size: 3.2rem;
@@ -141,11 +141,21 @@ h3 {
   width: 30%;
 }
 
-
-
 /* matchmake */
-.col-2 p {
+.m_card p {
   font-size: 0.9rem;
+}
+.m_card h4 {
+  border-bottom: solid 3px rgb(240, 120, 7);
+  position: relative;
+}
+.m_card h4:after {
+  position: absolute;
+  content: " ";
+  display: block;
+  border-bottom: solid 3px rgb(6, 56, 221);
+  bottom: -3px;
+  width: 30%;
 }
 
 /* footer */
@@ -164,16 +174,16 @@ text-decoration: none;
 
 
 /* matchmake */
-.matchmake h1 {
-  margin-top: 100px;
-}
 
 /* register */
-.card-header {
+.col-md-12 {
   margin-top: 4.0rem;
 }
 
-
+/* login */
+.col-md-8 {
+  margin-top: 4.0rem;
+}
 
 /*--- Extra Bootstrap Column Padding --*/
 [class*="col-"] {
@@ -210,10 +220,8 @@ margin-right: 0px!important;
 .home-inner img {
   position: fixed;
   display: table;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: auto;
   background-size: cover;
   background-position: center center;
   -webkit-transform: translateZ(0);

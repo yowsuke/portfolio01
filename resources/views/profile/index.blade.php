@@ -2,12 +2,6 @@
 
 @section('title', 'PLAYGRUND MATCHMAKE')
 
-
-    @if (session('message'))
-        {{ session('message') }}
-    @endif
-
-
   <!-- landingpageページ -->
 <div class="landing">
   <div class="home-wrap">
@@ -19,19 +13,19 @@
 
 <div class="caption text-center">
   <h1>Welcome to<br>PLAYGROUND MATCHMAKE.</h1>
-  <h3>バスケットボールマッチングサイト</h3>
-  <a class="btn btn-outline-light btn-lg" href="{{url('playground')}}">Get Started</a>
+  <h3>バスケットボール<br>マッチングサイト</h3>
+  <a class="btn btn-outline-light btn-lg" href="{{url('playground')}}">Let's PLAY !</a>
 </div>
 
 <!-- introductionページ -->
 <div id="introduction" class="offset"></div>
   <div class="col-12">
-    <h2 class="heading">バスケットボールの対戦チームを探せる<br>マッチングサイトです</h2>
-    <h3>PLAYGROUND MATCHMAKE.の特徴</h3>
+    <h2 class="heading">対戦チームを探せる<br>マッチングサイト</h2>
+    <h3>PLAYGROUND MATCHMAKE.特徴</h3>
   </div>
 
   <div class="card-deck">
-    <div class="card" style="col-sm-6 col-md-4">
+    <div class="card" style="col-sm-6 col-md-3">
       <img class="card-img-top" src="img/playground2.png" alt="カード1の画像">
       <div class="card-body">
         <h4 class="card-title">PLAYGROUNDを探す</h4>
@@ -39,7 +33,7 @@
       </div>
     </div>
 
-    <div class="card" style="col-sm-6 col-md-4">
+    <div class="card" style="col-sm-6 col-md-3">
       <img class="card-img-top" src="img/playground3.png" alt="カード1の画像">
       <div class="card-body">
         <h4 class="card-title">PLAYGROUNDを紹介</h4>
@@ -47,7 +41,7 @@
       </div>
     </div>
 
-    <div class="card" style="col-sm-6 col-md-4">
+    <div class="card" style="col-sm-6 col-md-3">
       <img class="card-img-top" src="img/girl.png" alt="カード1の画像">
       <div class="card-body">
         <h4 class="card-title">MATCHMAKEを実現</h4>
@@ -55,7 +49,7 @@
       </div>
     </div>
 
-    <div class="card" style="col-sm-6 col-md-4">
+    <div class="card" style="col-sm-6 col-md-3">
       <img class="card-img-top" src="img/start.png" alt="カード1の画像">
       <div class="card-body">
         <h4 class="card-title">安心のカテゴリー選択</h4>
@@ -70,7 +64,7 @@
 <div id="playground" class="offset"></div>
   <div class="col-12">
     <h2 class="heading">- PLAYGROUND -</h2>
-    <h3>プレイグラウンドを検索して、新しい仲間とプレーしよう！</h3>
+    <h3>プレイグラウンドを検索して、<br>新しい仲間とプレーしよう！</h3>
     <a class="btn btn-outline-dark btn-lg" href="{{url('playground')}}">Get Started</a>
   </div>
 
@@ -129,7 +123,7 @@
 
                 <div class="col-sm-6 col-md-4">
                   <div class="p_card">
-                    <img class="card-img-top" src="img/noimage2.png" alt="画像">
+                    <img class="card-img-top" src="img/oosaka.png" width="auto" height="auto" alt="画像">
                     <div class="p_card-body">
                       <h4 class="card-title">淀川河川公園</h4>
                       <p class="card-text">大阪府守口市外島町</p>
@@ -144,134 +138,136 @@
 <div id="matchmake" class="offset">
   <div class="col-12">
     <h2 class="heading">- match make -</h2>
-    <h3>対戦相手を募集して、マッチメイクを実現しよう！</h3>
-    <a class="btn btn-outline-dark btn-lg" href="{{ url('/pfofile/create') }}">Get Started</a>
+    <h3>対戦相手を募集して、<br>マッチメイクを実現しよう！</h3>
+    <a class="btn btn-outline-dark btn-lg" href="{{ url('/matchmake') }}">Get Started</a>
   </div>
   
   <div class="row text-center">
 
-      <div class="col-sm-6 col-md-2">
-        <div class="card h-100">
-          <img class="card-img-top" src="img/team1.png" alt="画像">
-          <div class="card-body">
-            <h5 class="card-title">HEMBAY ALL-STARS</h5>
-            <p class="card-text">エンジョイ</p>
-          </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="m_card">
+          <a href="#"><img class="card-img-top" src="img/team1.png" alt="画像"></a>
+            <div class="p_card-body">
+              <h4 class="card-title">HEMBAY ALL-STARS</h4>
+              <p class="card-text">ENJOY</p>
+            </div>
         </div>
       </div>
   
-      <div class="col-sm-6 col-md-2">
-        <div class="card h-100">
-          <img class="card-img-top" src="img/noimage1.png" alt="画像">
-          <div class="card-body">
-            <h5 class="card-title">狛江LAKERS</h5>
-            <p class="card-text">over30</p>
-          </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="m_card">
+          <a href="#"><img class="card-img-top" src="img/noimage.png" alt="画像"></a>
+            <div class="p_card-body">
+              <h4 class="card-title">狛江<br>LAKERS</h4>
+              <p class="card-text">OVER30</p>
+            </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <div class="m_card">
+          <a href="#"><img class="card-img-top" src="img/team4.png" alt="画像"></a>
+            <div class="p_card-body">
+              <h4 class="card-title">SAGETON SERPENTS</h4>
+              <p class="card-text">女子</p>
+            </div>
         </div>
       </div>
   
-      <div class="col-sm-6 col-md-2">
-        <div class="card h-100">
-          <img class="card-img-top" src="img/team4.png" alt="画像">
-          <div class="card-body">
-            <h5 class="card-title">SAGETON SERPENTS</h5>
-            <p class="card-text">女子</p>
-          </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="m_card">
+          <a href="#"><img class="card-img-top" src="img/team2.png" alt="画像"></a>
+            <div class="p_card-body">
+              <h4 class="card-title">yoyogi<br>KINGS</h4>
+              <p class="card-text">MIX</p>
+            </div>
         </div>
       </div>
 
-      <div class="col-sm-6 col-md-2">
-        <div class="card h-100">
-          <img class="card-img-top" src="img/team2.png" alt="画像">
-          <div class="card-body">
-            <h5 class="card-title">代々木KINGS</h5>
-            <p class="card-text">MIX</p>
-          </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="m_card">
+          <a href="#"><img class="card-img-top" src="img/team3.png" alt="画像"></a>
+            <div class="p_card-body">
+              <h4 class="card-title">RUPINO<br>ROTALS</h4>
+              <p class="card-text">OVER30</p>
+            </div>
         </div>
       </div>
 
-      <div class="col-sm-6 col-md-2">
-        <div class="card h-100">
-          <img class="card-img-top" src="img/team3.png" alt="画像">
-          <div class="card-body">
-            <h5 class="card-title">RUPINO ROTALS</h5>
-            <p class="card-text">over30</p>
-          </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="m_card">
+          <a href="#"><img class="card-img-top" src="img/patagonia.png" alt="画像"></a>
+            <div class="p_card-body">
+              <h4 class="card-title">チーム<br>パタゴニア</h4>
+              <p class="card-text">SERIOUSLY</p>
+            </div>
         </div>
       </div>
 
-      <div class="col-sm-6 col-md-2">
-        <div class="card h-100">
-          <img class="card-img-top" src="img/team5.png" alt="画像">
-          <div class="card-body">
-            <h5 class="card-title">チームパタゴニア</h5>
-            <p class="card-text">誰でもOK</p>
-          </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="m_card">
+          <a href="#"><img class="card-img-top" src="img/superstars.png" alt="画像"></a>
+            <div class="p_card-body">
+              <h4 class="card-title">SURER<br>STARS</h4>
+              <p class="card-text">GIRLS</p>
+            </div>
         </div>
       </div>
 
-      <div class="col-sm-6 col-md-2">
-        <div class="card h-100">
-          <img class="card-img-top" src="img/superstars.png" alt="画像">
-          <div class="card-body">
-            <h5 class="card-title">SURER STARS </h5>
-            <p class="card-text">女子</p>
-          </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="m_card">
+          <a href="#"><img class="card-img-top" src="img/osanzu.png" alt="画像"></a>
+            <div class="p_card-body">
+              <h4 class="card-title">チーム<br>おっさんず</h4>
+              <p class="card-text">OVER30</p>
+            </div>
         </div>
       </div>
 
-      <div class="col-sm-6 col-md-2">
-        <div class="card h-100">
-          <img class="card-img-top" src="img/noimage1.png" alt="画像">
-          <div class="card-body">
-            <h5 class="card-title">Beers</h5>
-            <p class="card-text">社会人</p>
-          </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="m_card">
+          <a href="#"><img class="card-img-top" src="img/noimage.png" alt="画像"></a>
+            <div class="p_card-body">
+              <h4 class="card-title">Beers</h4>
+              <p class="card-text">OVER30</p>
+            </div>
         </div>
       </div>
 
-      <div class="col-sm-6 col-md-2">
-        <div class="card h-100">
-          <img class="card-img-top" src="img/osanzu.png" alt="画像">
-          <div class="card-body">
-            <h5 class="card-title">チームおっさんず</h5>
-            <p class="card-text">over30</p>
-          </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="m_card">
+          <a href="#"><img class="card-img-top" src="img/noimage.png" alt="画像"></a>
+            <div class="p_card-body">
+              <h4 class="card-title">鶴ヶ丘OB</h4>
+              <p class="card-text">OVER30</p>
+            </div>
         </div>
       </div>
 
-      <div class="col-sm-6 col-md-2">
-        <div class="card h-100">
-          <img class="card-img-top" src="img/noimage1.png" alt="画像">
-          <div class="card-body">
-            <h5 class="card-title">鶴ヶ丘OB</h5>
-            <p class="card-text">社会人</p>
-          </div>
+
+      <div class="col-sm-6 col-md-3">
+        <div class="m_card">
+          <a href="#"><img class="card-img-top" src="img/noimage.png" alt="画像"></a>
+            <div class="p_card-body">
+              <h4 class="card-title">Familys</h4>
+              <p class="card-text">MIX</p>
+            </div>
         </div>
       </div>
 
-      <div class="col-sm-6 col-md-2">
-        <div class="card h-100">
-          <img class="card-img-top" src="img/noimage1.png" alt="画像">
-          <div class="card-body">
-            <h5 class="card-title">familys</h5>
-            <p class="card-text">MIX</p>
-          </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="m_card">
+          <a href="#"><img class="card-img-top" src="img/noimage.png" alt="画像"></a>
+            <div class="p_card-body">
+              <h4 class="card-title">ハンバーガーズ</h4>
+              <p class="card-text">MIX</p>
+            </div>
         </div>
       </div>
 
-      <div class="col-sm-6 col-md-2">
-        <div class="card h-100">
-          <img class="card-img-top" src="img/noimage1.png" alt="画像">
-          <div class="card-body">
-            <h5 class="card-title">茨城ハンバーガーズ</h5>
-            <p class="card-text">大学生</p>
-          </div>
-        </div>
-      </div>
-
+  </div>
 </div>
-</div>
+
 
 <!-- signupページ -->
 <div id="signup" class="offset">

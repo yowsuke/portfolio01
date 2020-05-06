@@ -1,29 +1,36 @@
-@extends('layouts.default')
+@extends('layouts.layouts')
 
-@section('title','Edit Post')
+@section('title', 'Simple Board')
 
 @section('content')
-<h1>
-    <a href="{{ url('/posts') }}" class="header-menu">Back</a>
-    Edit Post
-</h1>
-<form method="POST" action="{{ url('/posts',$post->id) }}">
-    {{ csrf_field() }}
-    {{ method_field('patch') }}
-    <p>
-        <input type="text" name="title" placeholder="enter title" value="{{ old('title',$post->title) }}">
-        @if($errors->has('title'))
-        <span class="error">{{ $errors->first('title') }}</span>
-        @endif
-    </p>
-    <p>
-        <textarea name="content" placeholder="enter content">{{ old('content',$post->content) }}</textarea>
-        @if($errors->has('content'))
-        <span class="error">{{ $errors->first('content') }}</span>
-        @endif
-    </p>
-    <p>
-        <input type="submit" value="Update">
-    </p>
+
+<h1>Editing Post</h1>
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+<form method="POST" action="posts/{{ $post->id }}">
+        {{ csrf_field() }}
+        <input type="hidden" name="_method" value="PUT">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Title</label>
+            <input type="text" class="form-control" aria-describedby="emailHelp" name="title" value="{{ old('title') == '' ? $post->title : old('title') }}">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Content</label>
+            <textarea class="form-control" name="content">{{ old('content') == '' ? $post->content : old('content') }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
 </form>
+
+<a href="posts/{{ $post->id }}">Show</a> | 
+<a href="posts">Back</a>
+
 @endsection
