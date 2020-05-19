@@ -14,10 +14,15 @@ class CreatePlaygroundsTable extends Migration
     public function up()
     {
         Schema::create('playgrounds', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('title');
-            $table->text('content');
-            $table->timestamps();
+            $table->increments('id');
+            $table->string('name');
+            $table->string('pref');
+            $table->string('area');
+            $table->integer('tel');
+            $table->string('url');
+            $table->string('open');
+            $table->string('fee');
+            $table->string('parking');
         });
     }
 

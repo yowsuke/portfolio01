@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Post;
 use App\Http\Requests\PostRequest;
-use App\Comment;
-use App\Playground;
+use Illuminate\Support\Facades\Auth;
 
 
 class PostController extends Controller
@@ -23,19 +22,7 @@ class PostController extends Controller
         return view('posts.index', compact('posts'));
     }
 
-/**
-     * Display the specified resource.
-     *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
-    {
-        return view('posts.show', compact('post'));
-    }
-
-
-    /**
+        /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -45,7 +32,7 @@ class PostController extends Controller
         return view('posts.create');
     }
 
-    /**
+/**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -57,6 +44,7 @@ class PostController extends Controller
         'title' => 'required',
         'content' => 'required',
         ]);
+        
         $post = new Post();
         $post->title = $request->input('title');
         $post->content = $request->input('content');
@@ -65,6 +53,18 @@ class PostController extends Controller
         return redirect()->route('posts.show', ['id' => $post->id])->with('message', 'Post was successfully created.');
     }
 
+/**
+     * Display the specified resource.
+     *
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Post $post)
+    {
+        return view('posts.show', compact('post'));
+    }
+
+    
 
     /**
      * Show the form for editing the specified resource.

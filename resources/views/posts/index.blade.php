@@ -20,6 +20,7 @@
             <div class="d-flex" style="height: 36.4px;">
 
             <a href="posts/{{ $post->id }}" class="btn btn-outline-primary">Show</a>
+            
             <a href="posts/{{ $post->id }}/edit" class="btn btn-outline-primary">Edit</a>
 
             <form action="posts/{{ $post->id }}" method="POST" onsubmit="if(confirm('Delete? Are you sure?')) { return true } else {return false };">

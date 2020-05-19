@@ -1,54 +1,55 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
+@charset "utf-8";
 body {
-  overflow-x: hidden;
-  font-family: 'Lato', sans-serif;
-  color: #505962;
+  margin: 0 auto;
+  padding: 0;
+  font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
 }
-.offset:before {
-  display: block;
-  content: "";
-  height: 4rem;
-  margin-top: -4rem;
+/* header */
+header {
+  width: 100%;
+  padding: 13px 3% 13px;
+  background-color: #e6e6e6;
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
 }
-
-/* DB */
-th {
-  background-color: #999;
-  color: #fff;
-  padding: 5px 10px;
+a.header{
+  margin: 0; padding: 0;
+  font-size: 20px;
 }
-
-td {
-  border: solid 1px #aaa;
-  color: #999;
-  padding: 5px 10px;
+a {	
+  text-decoration: none;
+  color: #4b4b4b;
 }
-
-
-/* navigation */
-.navbar {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: .1rem;
-  background-color: rgba(0,0,0,0.6)!important;
+a:hover {
+  color: #1ebba3;
 }
-.navbar-brand img{
-  height: 3rem;
+ul {
+  list-style: none;
+  margin: 0;
+  display: flex;
 }
-.navbar-nav li {
-  padding-right: .7rem;
+li {
+  margin: 0 0 0 15px;
+  font-size: 14px;
 }
-.navbar-dark .navbar-nav .navbar-link {
-  color: white;
-  padding-top: .8rem;
-}
-.navbar-dark .navbar-nav .nav-link.active,
-.navbar-dark .navbar-nav .nav-link:hover {
-  color: rgb(240, 12, 248);
+nav {
+  margin: 0 0 0 auto;
 }
 
-/* landingpage */
+/* mainpage */
+.top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+}
+/* .home-inner {
+  background-image: url(img/playground3.png);
+} */
 .caption {
   width: 100%;
   max-width: 100%;
@@ -56,263 +57,115 @@ td {
   top: 38%;
   z-index: 1;
   color: white;
-  text-transform: uppercase;
 }
 .caption h1 {
-  font-size: 3.8rem;
+  font-size: 2.0rem;
   font-weight: 700;
   letter-spacing: .3rem;
-  text-shadow: .1rem .1rem .8rem black;
+  text-shadow: .1rem .1rem .8rem gray;
   padding-bottom: 1rem;
 }
-.caption h3 {
-  font-size: 2rem;
-  text-shadow: .1rem .1rem .5rem black;
-  padding-bottom: 1.6rem;
-}
-.btn-lg {
-  border-width: medium;
-  border-radius: 0;
-  padding: .6rem 1.3rem;
-  font-size: 1.1rem;
-}
 
-/* introduction */
-.col-12 h3 {
-  padding: 0.5em;/*文字周りの余白*/
-  color: #505962;/*文字色*/
-  background: #c7c7c7;/*背景色*/
-  border-bottom: solid 4px #505962/*下線*/
+/* playgrounds */
+.container {
+  margin-top: 8rem;
 }
-.card {
-  text-align: center;
+.playground {
+  margin-bottom: 1rem;
 }
-.card p {
-  font-size: 0.9rem;
-}
-.card h4 {
-  border-bottom: solid 3px purple;
-  position: relative;
-}
-.card h4:after {
-  position: absolute;
-  content: " ";
-  display: block;
-  border-bottom: solid 3px YELLOW;
-  bottom: -3px;
-  width: 30%;
-}
-
-/* playground */
-.col-12 {
-  text-align: center;
-  margin-top: 2.0rem;
-}
-h2.heading {
-  font-size: 3.2rem;
+.playground h1{
+  font-size: 2.0rem;
   font-weight: 700;
-  text-transform: uppercase;
-  margin-top: 1.9rem;
-  margin-bottom: 1.9rem;
-  text-align: center;
+  letter-spacing: .3rem;
+  text-shadow:
+   0 0 5px #999,
+   0 0 13px #f03,
+   0 0 13px #f03,
+   0 0 13px #f03,
+   0 0 13px #f03;
 }
-h3 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-align: center;
+.newpost {
+  margin-bottom: 1rem;
 }
-.p_card {
-  text-align: center;
-}
-.p_card p {
-  font-size: 0.9rem;
-}
-.p_card h4 {
-  border-bottom: solid 3px rgb(240, 7, 7);
-  position: relative;
-}
-.p_card h4:after {
-  position: absolute;
-  content: " ";
-  display: block;
-  border-bottom: solid 3px rgb(0, 0, 0);
-  bottom: -3px;
-  width: 30%;
-}
-
-/* matchmake */
-.m_card p {
-  font-size: 0.9rem;
-}
-.m_card h4 {
-  border-bottom: solid 3px rgb(240, 120, 7);
-  position: relative;
-}
-.m_card h4:after {
-  position: absolute;
-  content: " ";
-  display: block;
-  border-bottom: solid 3px rgb(6, 56, 221);
-  bottom: -3px;
-  width: 30%;
-}
-
-/* footer */
-footer{
-  width: 100%;
-  height: 100px;
-  background-color: black;
-  color: white;
-  text-align: center;
-}
-ul.footer-menu p {
-display: inline;
-text-decoration: none;
-}
-
-
-
-/* matchmake */
-
-/* register */
-.col-md-12 {
-  margin-top: 4.0rem;
-}
-
-/* login */
-.col-md-8 {
-  margin-top: 4.0rem;
-}
-
-/*--- Extra Bootstrap Column Padding --*/
-[class*="col-"] {
-  padding: 1rem;
-}
-
-/*--- Bootstrap Mobile Gutter Fix --*/
-.row, .container-fluid {
-margin-left: 0px!important;
-margin-right: 0px!important;
-}
-
-/*--- Fix for Fixed Navbar jumping on scroll --*/
-.fixed-top  {
- -webkit-backface-visibility: hidden;
-}
-
-/*--- Fixed Landing Page Section --*/
-.landing {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: table;
+.card-body {
   z-index: -1;
+  border: 1px solid #000000;
 }
-.home-wrap {
-  clip: rect(0, auto, auto, 0);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-.home-inner img {
-  position: fixed;
-  display: table;
-  width: 100vw;
-  height: auto;
-  background-size: cover;
-  background-position: center center;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-  will-change: transform;
+.card-body img {
+  margin-bottom: 1rem;
 }
 
-/*--- iOS Fixed Background Image --*/
-.fixed-background {
-  position: relative;
-  width: 100%;
+/* plasygrounds show */
+.playground-show h1 {
+    margin-top: 8rem;
+    margin-bottom: 2rem;
 }
-.fixed-wrap {
-  clip: rect(0, auto, auto, 0);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -999!important;
+.pg-td th {
+  width: 10em;
+  background-color: #D7EEFF		;
+  border: solid 1px black;
+  color: black;
+  padding: 15px 40px;
 }
-.fixed {
-  position: fixed;
-  display: block;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center center;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-  will-change: transform;
+.pg-td td {
+  width: 35em;
+    border: solid 1px black;
+    color: black;
+    padding: 15px 40px;
 }
 
-
-/*============= COURSE SECTION =============*/
-
-.narrow {
-  width: 75%;
-  margin: 1.5rem auto;
-  padding-top: 2rem;
-}
-.narrow h1 {
-    font-size: 2.4rem;
-  }
-.btn-secondary {
-  border-width: medium;
-  border-radius: 0;
-  padding: .6rem 1.2rem;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  margin: 1rem;
-  border-color: #1EBBA3;
-  background-color: #1EBBA3;
-  color: white;
-}
-.btn-secondary:hover,
-.btn-secondary:focus {
-  border-color: #189582;
-  background-color: #189582;
-  color: white;
+/* playgrounds create */
+.form-group label {
+  text-align: left;
 }
 
-/* signup */
- .matchmake h1 {
-  margin-top: 5rem;
+/* matcmakes */
+.container {
+  margin-top: 8rem;
+}
+.matchmake {
+  margin-bottom: 1rem;
+}
+.matchmake h1{
+  font-size: 2.0rem;
+  font-weight: 700;
+  letter-spacing: .3rem;
+  text-shadow:
+   0 0 5px #999,
+   0 0 13px yellow,
+   0 0 13px yellow,
+   0 0 13px yellow,
+   0 0 13px yellow;
+}
+.newpost {
+  margin-bottom: 1rem;
+}
+.card-body {
+  z-index: -1;
+  border: 1px solid #000000;
+}
+.card-body img {
+  margin-bottom: 1rem;
 }
 
-/* show.blade */
-.card h5 {
-  margin-top: 5rem;
+/* matchmake show */
+.matchmake-show h1 {
+  margin-top: 8rem;
+  margin-bottom: 2rem;
 }
-
-
-/*============ BOOTSTRAP BREAK POINTS:
-
-Extra small (xs) devices (portrait phones, less than 576px)
-No media query since this is the default in Bootstrap
-
-Small (sm) devices (landscape phones, 576px and up)
-@media (min-width: 576px) { ... }
-
-Medium (md) devices (tablets, 768px and up)
-@media (min-width: 768px) { ... }
-
-Large (lg) devices (desktops, 992px and up)
-@media (min-width: 992px) { ... }
-
-Extra (xl) large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... }
-
-=============*/
-
+.mm-td th {
+width: 13em;
+background-color: #D7EEFF		;
+border: solid 1px black;
+color: black;
+padding: 15px 40px;
+}
+.mm-td td {
+width: 35em;
+  border: solid 1px black;
+  color: black;
+  padding: 15px 40px;
+}
+.btn {
+  margin-top: 1rem;
+}

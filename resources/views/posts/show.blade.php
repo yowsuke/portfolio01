@@ -10,4 +10,8 @@
 
     {{ $post->title }}
     {{ $post->content }} 
+
+    <a href="{{ url('posts') }}">Back</a>
+
 @endsection
+

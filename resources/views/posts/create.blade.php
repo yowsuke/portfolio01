@@ -16,7 +16,7 @@
     </div>
 @endif
 
-<form method="POST" action="/posts">
+<form method="POST" action="{{ url('/posts/')}}">
     {{ csrf_field() }}
     <div class="form-group">
         <label for="exampleInputEmail1">Title</label>
@@ -31,6 +31,6 @@
     <button type="submit" class="btn btn-outline-primary">Submit</button>
 </form>
 
-<a href="posts">Back</a>
+<a href="{{ url('posts') }}">Back</a>
 
 @endsection

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Matchmake;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Matchmake;
+use App\Http\Requests\MatchmakeRequest;
 use Illuminate\Support\Facades\Auth;
 
 class MatchmakeController extends Controller
@@ -15,9 +17,8 @@ class MatchmakeController extends Controller
      */
     public function index()
     {
-        $matchmake = Matchmake::all();
-
-        return view('matchmake.index', compact('matchmake'));
+        $matchmakes = Matchmake::all();
+        return view('matchmakes.index', compact('matchmakes'));
     }
 
     /**
@@ -27,7 +28,7 @@ class MatchmakeController extends Controller
      */
     public function create()
     {
-        return view('matchmake.create');
+        return view('matchmakes.create');
     }
 
     /**
@@ -39,16 +40,26 @@ class MatchmakeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'content' => 'required',
+            'name' => 'required',
+            'teamname' => 'required',
+            'area' => 'required',
+            'category' => 'required',
+            'age' => 'required',
+            'introduce' => 'required',
+            'email' => 'required',
         ]);
 
         $matchmake = new Matchmake();
-        $matchmake->title = $request->input('title');
-        $matchmake->content = $request->input('content');
+        $matchmake->name = $request->input('name');
+        $matchmake->teamname = $request->input('teamname');
+        $matchmake->name = $request->input('area');
+        $matchmake->teamname = $request->input('category');
+        $matchmake->name = $request->input('age');
+        $matchmake->teamname = $request->input('introduce');
+        $matchmake->teamname = $request->input('email');
         $matchmake->save();
 
-        return redirect()->route('matchmake.show', ['id' => $matchmake->id])->with('message', 'Matchmake was successfully created.');
+        return redirect()->route('matchmakes.show', ['id' => $matchmake->id])->with('message', 'Matchmake was successfully created.');
     }
 
     /**
@@ -59,7 +70,7 @@ class MatchmakeController extends Controller
      */
     public function show(Matchmake $matchmake)
     {
-        return view('matchmake.show', compact('matchmake'));
+        return view('matchmakes.show', compact('matchmake'));
     }
 
     /**
@@ -70,7 +81,7 @@ class MatchmakeController extends Controller
      */
     public function edit(Matchmake $matchmake)
     {
-        return view('matchmake.edit', compact('matchmake'));
+        return view('matchmakes.edit', compact('matchmake'));
     }
 
     /**
@@ -83,15 +94,15 @@ class MatchmakeController extends Controller
     public function update(Request $request, Matchmake $matchmake)
     {
         $request->validate([
-            'title' => 'required',
-            'content' => 'required',
+            'name' => 'required',
+            'teamname' => 'required',
         ]);
         
-        $matchmake->title = $request->input('title');
-        $matchmake->content = $request->input('content');
+        $matchmake->title = $request->input('name');
+        $matchmake->content = $request->input('teamname');
         $matchmake->save();
 
-        return redirect()->route('matchmake.show', ['id' => $matchmake->id])->with('message', 'Matchmake was successfully updated.');
+        return redirect()->route('matchmakes.show', ['id' => $matchmake->id])->with('message', 'Matchmake was successfully updated.');
     }
 
     /**
@@ -104,6 +115,6 @@ class MatchmakeController extends Controller
     {
         $matchmake->delete();
 
-        return redirect()->route('matchmake.index');
+        return redirect()->route('matchmakes.index');
     }
 }

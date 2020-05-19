@@ -14,11 +14,23 @@
 //     return view('welcome');
 // });
 
-Route::get('/posts', function () {
-  return view('welcome');
-});
-Route::resource('posts', 'PostController');
+// Route::get('/posts', function () {
+//   return view('welcome');
+// });
+Route::get('/posts', 'PostController@index');
+Route::resource('/posts', 'PostController');
+    if (env('APP_ENV') === 'local') {
+        URL::forceScheme('https');
+} 
 
+Route::get('/playgrounds', 'PlaygroundController@index');
+Route::resource('/playgrounds', 'PlaygroundController');
+    if (env('APP_ENV') === 'local') {
+        URL::forceScheme('https');
+} 
+
+Route::get('/matchmakes', 'MatchmakeController@index');
+Route::resource('/matchmakes', 'MatchmakeController');
     if (env('APP_ENV') === 'local') {
         URL::forceScheme('https');
 } 
@@ -43,6 +55,14 @@ Route::get('/playground2', function() {
 Route::get('/matchmake', function() {
   return view('profile.matchmake');
 });
+
+
+Route::get('/hello', 'HelloController@index');
+Route::resource('/hello', 'HelloController');
+    if (env('APP_ENV') === 'local') {
+        URL::forceScheme('https');
+} 
+
 
 Auth::routes();
 Auth::logout();
