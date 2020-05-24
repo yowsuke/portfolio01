@@ -14,6 +14,7 @@
         <tr><th>利用時間</th><td>{{ $playground->open }}</td></tr> 
         <tr><th>利用料金</th><td>{{ $playground->fee }}</td></tr>
         <tr><th>駐車場</th><td>{{ $playground->parking }}</td></tr>
+        <tr><th>写真</th><td>{{ asset('public/storage/') }}/{{ $playground->id }}/{{ $playground->image }}</td></tr>
     </table>
 </div>
 

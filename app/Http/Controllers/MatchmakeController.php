@@ -37,27 +37,36 @@ class MatchmakeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Matchmake $matchmake)
     {
         $request->validate([
             'name' => 'required',
             'teamname' => 'required',
             'area' => 'required',
-            'category' => 'required',
-            'age' => 'required',
-            'introduce' => 'required',
-            'email' => 'required',
+            // 'category' => 'required',
+            // 'age' => 'required',
+            // 'introduce' => 'required',
+            // 'email' => 'required',
         ]);
 
-        $matchmake = new Matchmake();
-        $matchmake->name = $request->input('name');
-        $matchmake->teamname = $request->input('teamname');
-        $matchmake->name = $request->input('area');
-        $matchmake->teamname = $request->input('category');
-        $matchmake->name = $request->input('age');
-        $matchmake->teamname = $request->input('introduce');
-        $matchmake->teamname = $request->input('email');
-        $matchmake->save();
+        // $matchmake = new Matchmake();
+        // $matchmake->name = $request->input('name');
+        // $matchmake->teamname = $request->input('teamname');
+        // $matchmake->area = $request->input('area');
+        // $matchmake->category = $request->input('category');
+        // $matchmake->age = $request->input('age');
+        // $matchmake->introduce = $request->input('introduce');
+        // $matchmake->email = $request->input('email');
+        // $matchmake->save();
+
+        //ファイル名を取得
+        $filename = $request->file('image')->getClientOriginalName();
+        // 配列のimageの値を書き換える
+        $storedata =  array_replace($request->all(), array('image' => $filename));
+        // $matchmake->save();
+        $matchmake->fill($storedata)->save();
+        // ファイルの保存
+        $request->file('image')->storeAs('public/'.$matchmake->id.'/', $filename);
 
         return redirect()->route('matchmakes.show', ['id' => $matchmake->id])->with('message', 'Matchmake was successfully created.');
     }

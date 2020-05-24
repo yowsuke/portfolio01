@@ -47,9 +47,7 @@ nav {
   height: 100vh;
   background-size: cover;
 }
-/* .home-inner {
-  background-image: url(img/playground3.png);
-} */
+
 .caption {
   width: 100%;
   max-width: 100%;
@@ -93,6 +91,10 @@ nav {
 }
 .card-body img {
   margin-bottom: 1rem;
+}
+.pg-img {
+  width: 320px;
+  height: 240px;
 }
 
 /* plasygrounds show */

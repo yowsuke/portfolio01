@@ -16,7 +16,7 @@
     </div>
 @endif
 
-<form method="POST" action="{{ url('/playgrounds/')}}">
+<form method="POST" action="{{ url('/playgrounds/')}}" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="form-group">
         <label for="name">名称</label>
@@ -58,9 +58,14 @@
         <textarea class="form-control" name="parking">{{old('parking')}}</textarea>
     </div>
 
+    <div class="form-group">
+        <label for="url">写真</label>
+        <input type="file" class="form-control" name="image" value="{{old('image')}}">
+    </div>
+
     <button type="submit" class="btn btn-outline-primary">Submit</button>
 </form>
 
-<a href="{{ url('playgrounds') }}">Back</a>
+<a href="{{ url('playgrounds') }}" class="btn btn-outline-primary">Back</a>
 
 @endsection

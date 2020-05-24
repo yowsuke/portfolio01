@@ -16,7 +16,7 @@
     </div>
 @endif
 
-<form method="POST" action="{{ url('/matchmakes/')}}">
+<form method="POST" action="{{ url('/matchmakes/')}}" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="form-group">
         <label for="name">代表者名</label>
@@ -51,6 +51,11 @@
     <div class="form-group">
         <label for="email">メールアドレス</label>
         <input type="text" class="form-control" name="email" value="{{old('email')}}">
+    </div>
+
+    <div class="form-group">
+        <label for="url">写真</label>
+        <input type="file" class="form-control" name="image" value="{{old('image')}}">
     </div>
 
     <button type="submit" class="btn btn-outline-primary">Submit</button>

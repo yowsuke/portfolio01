@@ -39,28 +39,36 @@ class PlaygroundController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Playground $playground)
     {
         $request->validate([
         'name' => 'required',
         'pref' => 'required',
         'area' => 'required',
-        'tel' => 'required',
-        'url' => 'required',
-        'open' => 'required',
-        'fee' => 'required',
-        'parking' => 'required',
+        // 'tel' => 'required',
+        // 'url' => 'required',
+        // 'open' => 'required',
+        // 'fee' => 'required',
+        // 'parking' => 'required',
         ]);
-        $playground = new Playground();
-        $playground->name = $request->input('name');
-        $playground->pref = $request->input('pref');
-        $playground->area = $request->input('area');
-        $playground->tel = $request->input('tel');
-        $playground->url = $request->input('url');
-        $playground->open = $request->input('open');
-        $playground->fee = $request->input('fee');
-        $playground->parking = $request->input('parking');
-        $playground->save();
+        // $playground = new Playground();
+        // $playground->name = $request->input('name');
+        // $playground->pref = $request->input('pref');
+        // $playground->area = $request->input('area');
+        // $playground->tel = $request->input('tel');
+        // $playground->url = $request->input('url');
+        // $playground->open = $request->input('open');
+        // $playground->fee = $request->input('fee');
+        // $playground->parking = $request->input('parking');
+        
+        //ファイル名を取得
+        $filename = $request->file('image')->getClientOriginalName();
+        // 配列のimageの値を書き換える
+        $storedata =  array_replace($request->all(), array('image' => $filename));
+        // $playground->save();
+        $playground->fill($storedata)->save();
+        // ファイルの保存
+        $request->file('image')->storeAs('public/'.$playground->id.'/', $filename);
 
         return redirect()->route('playgrounds.show', ['id' => $playground->id])->with('message', 'Playground was successfully created.');
     }

@@ -20,9 +20,9 @@
 
     @foreach($matchmakes as $matchmake)
         <div class="card-body">
-            <!-- <h5 class="card-title">{{ $matchmake->name }}</h5> -->
-            <h4 class="card-text">{{ $matchmake->teamname }}</h4>
-            <img src="img/team2.png" width="320" height="240">
+            <h4 class="card-title">{{ $matchmake->teamname }}</h4>
+                <h5 class="card-text">{{ $matchmake->area }}</h5>
+                <img class="pg-img" src="{{ asset('public/storage/') }}/{{ $matchmake->id }}/{{ $matchmake->image }}">
         <div class="btn-show" style="height: 36.4px;">
             <a href="matchmakes/{{ $matchmake->id }}" class="btn btn-outline-primary">Show</a>
         </div>

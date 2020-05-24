@@ -19,21 +19,15 @@
 // });
 Route::get('/posts', 'PostController@index');
 Route::resource('/posts', 'PostController');
-    if (env('APP_ENV') === 'local') {
-        URL::forceScheme('https');
-} 
 
-Route::get('/playgrounds', 'PlaygroundController@index');
+
+// Route::get('/playgrounds', 'PlaygroundController@index');
 Route::resource('/playgrounds', 'PlaygroundController');
-    if (env('APP_ENV') === 'local') {
-        URL::forceScheme('https');
-} 
 
-Route::get('/matchmakes', 'MatchmakeController@index');
+
+// Route::get('/matchmakes', 'MatchmakeController@index');
 Route::resource('/matchmakes', 'MatchmakeController');
-    if (env('APP_ENV') === 'local') {
-        URL::forceScheme('https');
-} 
+
 
 // ↓ルーティングにRoute::resourceを指定することで、CRUDルーティングを一度にできる。
 // local内でhttpsにURLを設定
@@ -41,9 +35,7 @@ Route::get('profile', function () {
     return view('profile.index');
 });
 Route::resource('/profile', 'ProfileController');
-if (env('APP_ENV') === 'local') {
-    URL::forceScheme('https');
-}
+
 Route::get('/playground', function() {
   return view('profile.playground');
 });
@@ -59,10 +51,10 @@ Route::get('/matchmake', function() {
 
 Route::get('/hello', 'HelloController@index');
 Route::resource('/hello', 'HelloController');
-    if (env('APP_ENV') === 'local') {
-        URL::forceScheme('https');
-} 
 
+if (env('APP_ENV') === 'local') {
+  URL::forceScheme('https');
+} 
 
 Auth::routes();
 Auth::logout();

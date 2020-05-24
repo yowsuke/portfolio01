@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="{{ asset('css/style.css') }}" media="all">
     </head>
     <body>
-        @component('components.header3')
+        @component('components.header')
         @endcomponent
 
         <div class="container">

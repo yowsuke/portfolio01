@@ -22,7 +22,8 @@
         <div class="card-body">
             <h4 class="card-title">{{ $playground->name }}</h4>
             <h5 class="card-text">{{ $playground->pref }}</h5>
-            <img src="img/playground3.png" width="320" height="240">
+            <img class="pg-img" src="{{ asset('public/storage/') }}/{{ $playground->id }}/{{ $playground->image }}">
+            <!-- <img src="img/playground3.png" width="320" height="240"> -->
         <div class="btn-show" style="height: 36.4px;">
             <a href="playgrounds/{{ $playground->id }}" class="btn btn-outline-primary">Show</a>   
         </div>
